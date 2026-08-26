@@ -29,8 +29,8 @@ const matches = [
 // NEWS / PRACTICE UPDATES — most recent first
 const news = [
   {
-    date: "2026-08-20",
-    title: "Evening practice moved to Ground B this week",
+    date: "2026-08-26",
+    title: "Evening practice moved to Hostel Ground this week",
     body: "Due to maintenance on the main pitch, all practice sessions this week will be held at Ground B behind the science block. Same timings: 5:30 PM daily."
   },
   {
