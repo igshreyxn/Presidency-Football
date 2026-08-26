@@ -1,5 +1,3 @@
-// Finds the next upcoming match and counts down to it on the scoreboard
-
 function getNextMatch() {
   const now = new Date();
   const upcoming = matches
@@ -57,9 +55,12 @@ function updateCountdown() {
   secsEl.textContent = pad(secs);
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const scoreboard = document.getElementById("scoreboard-opponent");
   if (scoreboard) {
+    if (window.cmsDataReady) {
+      await window.cmsDataReady;
+    }
     updateCountdown();
     setInterval(updateCountdown, 1000);
   }
