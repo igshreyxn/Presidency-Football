@@ -1,0 +1,39 @@
+backend:
+  name: github
+  repo: igshreyxn/Presidency-Football
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "matches"
+    label: "Matches"
+    folder: "content/matches"
+    create: true
+    format: json
+    fields:
+      - { label: "Date & Time", name: "date", widget: "datetime" }
+      - { label: "Opponent", name: "opponent", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Result (leave blank if upcoming)", name: "result", widget: "string", required: false }
+
+  - name: "news"
+    label: "News"
+    folder: "content/news"
+    create: true
+    format: json
+    fields:
+      - { label: "Date", name: "date", widget: "date" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "text" }
+
+  - name: "trials"
+    label: "Trials"
+    folder: "content/trials"
+    create: true
+    format: json
+    fields:
+      - { label: "Date & Time", name: "date", widget: "datetime" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Notes", name: "notes", widget: "text" }
