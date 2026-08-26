@@ -10,11 +10,16 @@ document.addEventListener("DOMContentLoaded", function () {
       toggle.classList.toggle("open");
     });
   }
+});
 
-  // ============================================
-  // Scroll fade-in (Intersection Observer)
-  // ============================================
-  const revealEls = document.querySelectorAll(".reveal");
+// ============================================
+// Everything below waits for CMS content to load first
+// ============================================
+document.addEventListener("DOMContentLoaded", async function () {
+  if (window.cmsDataReady) {
+    await window.cmsDataReady;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -26,21 +31,16 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     { threshold: 0.15 }
   );
-  revealEls.forEach((el) => observer.observe(el));
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-  // ============================================
-  // Render upcoming matches (index.html + schedule.html)
-  // ============================================
   const matchList = document.getElementById("match-list");
   if (matchList && typeof matches !== "undefined") {
     const now = new Date();
     const upcoming = matches
       .filter((m) => new Date(m.date) > now)
       .sort((a, b) => new Date(a.date) - new Date(b.date));
-
     const limit = matchList.dataset.limit ? parseInt(matchList.dataset.limit) : upcoming.length;
     const toShow = upcoming.slice(0, limit);
-
     if (toShow.length === 0) {
       matchList.innerHTML = '<p class="empty-state">No upcoming matches scheduled yet. Check back soon.</p>';
     } else {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const dateStr = d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
           const timeStr = d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
           return `
-            <div class="match-card reveal">
+            <div class="match-card reveal visible">
               <div class="match-date">
                 <span class="match-date-day">${dateStr}</span>
                 <span class="match-date-time">${timeStr}</span>
@@ -62,20 +62,14 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>`;
         })
         .join("");
-      // re-observe newly added cards
-      matchList.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     }
   }
 
-  // ============================================
-  // Render past results (schedule.html)
-  // ============================================
   const resultsList = document.getElementById("results-list");
   if (resultsList && typeof matches !== "undefined") {
     const played = matches
-      .filter((m) => m.result !== null)
+      .filter((m) => m.result !== null && m.result !== "")
       .sort((a, b) => new Date(b.date) - new Date(a.date));
-
     if (played.length === 0) {
       resultsList.innerHTML = '<p class="empty-state">No results yet — the season is just getting started.</p>';
     } else {
@@ -85,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const dateStr = d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
           const isWin = m.result.startsWith("W");
           return `
-            <div class="result-card reveal">
+            <div class="result-card reveal visible">
               <span class="result-badge ${isWin ? "win" : "loss"}">${m.result}</span>
               <div class="match-info">
                 <span class="match-vs">vs ${m.opponent}</span>
@@ -94,13 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>`;
         })
         .join("");
-      resultsList.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     }
   }
 
-  // ============================================
-  // Render news (index.html + news.html)
-  // ============================================
   const newsList = document.getElementById("news-list");
   if (newsList && typeof news !== "undefined") {
     const limit = newsList.dataset.limit ? parseInt(newsList.dataset.limit) : news.length;
@@ -110,19 +100,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const d = new Date(n.date);
         const dateStr = d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
         return `
-          <div class="news-card reveal">
+          <div class="news-card reveal visible">
             <span class="news-date">${dateStr}</span>
             <h3 class="news-title">${n.title}</h3>
             <p class="news-body">${n.body}</p>
           </div>`;
       })
       .join("");
-    newsList.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   }
 
-  // ============================================
-  // Render trial dates (trials.html)
-  // ============================================
   const trialsList = document.getElementById("trials-list");
   if (trialsList && typeof trials !== "undefined") {
     const now = new Date();
@@ -136,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const dateStr = d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
           const timeStr = d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
           return `
-            <div class="trial-card reveal">
+            <div class="trial-card reveal visible">
               <div class="trial-date-badge">
                 <span>${dateStr}</span>
                 <span class="trial-time">${timeStr}</span>
@@ -146,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>`;
         })
         .join("");
-      trialsList.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     }
   }
 });
