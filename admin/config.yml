@@ -38,3 +38,14 @@ collections:
       - { label: "Date & Time", name: "date", widget: "datetime" }
       - { label: "Location", name: "location", widget: "string" }
       - { label: "Notes", name: "notes", widget: "text" }
+      
+  - name: "team"
+    label: "Team"
+    folder: "content/team"
+    create: true
+    format: json
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image", required: false }
+      - { label: "Order (lower shows first)", name: "order", widget: "number", default: 1 }
