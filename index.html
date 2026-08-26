@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presidency University Football Team | Trials, Schedule & Practice Updates</title>
+  <meta name="description" content="Official site of the Presidency University Football Team. See upcoming match schedules, practice updates, and open trial dates. Open to all students, alumni, and staff.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-mark">P</span>
+        Presidency Football
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="roster.html">Team</a></li>
+        <li><a href="trials.html">Trials</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Presidency University · Est. 2026</p>
+      <h1>Built by the players who show up first.</h1>
+      <p class="hero-sub">We're building Presidency University's football program from the ground up — and every trial, practice, and match adds another page to it.</p>
+      <div class="hero-cta">
+        <a href="trials.html" class="btn btn-primary">See Trial Dates &amp; Sign Up</a>
+        <a href="schedule.html" class="btn btn-outline">View Schedule</a>
+      </div>
+
+      <div class="scoreboard reveal">
+        <p class="scoreboard-label">Next Match</p>
+        <p class="scoreboard-opponent" id="scoreboard-opponent">Loading...</p>
+        <p class="scoreboard-location" id="scoreboard-location"></p>
+        <div class="scoreboard-timer">
+          <div class="timer-unit">
+            <span class="timer-value" id="cd-days">--</span>
+            <span class="timer-label">Days</span>
+          </div>
+          <div class="timer-unit">
+            <span class="timer-value" id="cd-hours">--</span>
+            <span class="timer-label">Hours</span>
+          </div>
+          <div class="timer-unit">
+            <span class="timer-value" id="cd-mins">--</span>
+            <span class="timer-label">Mins</span>
+          </div>
+          <div class="timer-unit">
+            <span class="timer-value" id="cd-secs">--</span>
+            <span class="timer-label">Secs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Fresh off the pitch</p>
+        <h2>Latest Updates</h2>
+      </div>
+      <div class="news-grid" id="news-list" data-limit="3"></div>
+    </div>
+  </section>
+
+  <!-- UPCOMING MATCHES -->
+  <section style="background:#fff;">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Mark your calendar</p>
+        <h2>Upcoming Matches</h2>
+        <p>Every fixture we play, posted as soon as it's confirmed.</p>
+      </div>
+      <div class="match-list" id="match-list" data-limit="3"></div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section>
+    <div class="container">
+      <div class="involved-block reveal">
+        <div>
+          <h2>Ready to Find Out What You Can Do?</h2>
+          <p>Trials are open. Practice is happening. The only thing missing is you.</p>
+        </div>
+        <a href="trials.html" class="btn btn-primary">Get Trial Dates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY JOIN -->
+  <section style="background:#fff;">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Why join now</p>
+        <h2>Three Reasons to Show Up</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card reveal">
+          <span class="benefit-number">1</span>
+          <h3>Be Part of the First Chapter</h3>
+          <p>Most teams already have a legacy. This one doesn't yet — which means the players who join now are the ones who'll define it.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <span class="benefit-number">2</span>
+          <h3>Real Trials, Real Schedule</h3>
+          <p>No guesswork. Trial dates, practice timings, and match schedules are posted here and kept updated — so you always know when to show up.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <span class="benefit-number">3</span>
+          <h3>Open to Anyone Who Wants In</h3>
+          <p>You don't need to have played competitively before. If you're a student, alumnus, or staff member who wants to train, there's a spot to try out for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Where we stand</p>
+        <h2>30–40 Students. One Growing Program.</h2>
+        <p>Every practice update, every trial announcement, and every match result gets posted here first — so you can see this isn't just a page, it's an active team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJECTIONS -->
+  <section style="background:#fff;">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Before you ask</p>
+        <h2 style="color:var(--color-navy);">Common Questions</h2>
+      </div>
+      <div class="objections">
+        <div class="objection-item reveal">
+          <h3>"I've never played on a real team before."</h3>
+          <p style="color:var(--color-gray);">That's fine — trials aren't about proving you're already good, they're about showing you're willing to train and improve. Most of the current squad started the same way.</p>
+        </div>
+        <div class="objection-item reveal">
+          <h3>"What if I miss the trial dates?"</h3>
+          <p style="color:var(--color-gray);">They're posted in advance on the Trials page, along with what to bring and where to show up. Check back — new dates get added as the program grows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="closing-cta reveal">
+    <div class="container">
+      <h2 style="color:var(--color-navy);">Ready to Find Out What You Can Do?</h2>
+      <p>Trials are open. Practice is happening. The only thing missing is you.</p>
+      <a href="trials.html" class="btn btn-primary">See Trial Dates &amp; Sign Up</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <a href="index.html" class="nav-brand">
+          <span class="nav-brand-mark">P</span>
+          Presidency Football
+        </a>
+        <ul class="footer-links">
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="trials.html">Trials</a></li>
+          <li><a href="about.html">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">&copy; 2026 Presidency University Football Team. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

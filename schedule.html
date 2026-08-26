@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule & Results | Presidency University Football</title>
+  <meta name="description" content="Upcoming match schedule and past results for the Presidency University Football Team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-mark">P</span>
+        Presidency Football
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="schedule.html" class="active">Schedule</a></li>
+        <li><a href="roster.html">Team</a></li>
+        <li><a href="trials.html">Trials</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Schedule &amp; Results</h1>
+      <p>Every match we play, before and after it happens.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Coming up</p>
+        <h2>Upcoming Matches</h2>
+      </div>
+      <div class="match-list" id="match-list"></div>
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Season so far</p>
+        <h2>Results</h2>
+      </div>
+      <div class="match-list" id="results-list"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <a href="index.html" class="nav-brand">
+          <span class="nav-brand-mark">P</span>
+          Presidency Football
+        </a>
+        <ul class="footer-links">
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="trials.html">Trials</a></li>
+          <li><a href="about.html">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">&copy; 2026 Presidency University Football Team. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
