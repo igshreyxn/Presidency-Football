@@ -1,7 +1,8 @@
 backend:
   name: github
   repo: igshreyxn/Presidency-Football
-  branch: main
+  branch: main 
+  base_url: https://decap-cms-oauth-beryl.vercel.app
 
 media_folder: "images"
 public_folder: "/images"
